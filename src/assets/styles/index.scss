@@ -1,0 +1,344 @@
+@import '~bootstrap/scss/bootstrap.scss';
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans&display=swap');
+
+$ten-px: 10px;
+$black: #000;
+$cyan: #96c9c7;
+$gray: #787878;
+
+%cyan-outline {
+    border: 1px solid $cyan;
+}
+
+@mixin container-spacing($width) {
+    width: $width;
+    margin: $ten-px auto;
+}
+
+@mixin container($height) {
+    @extend %cyan-outline;
+    background-color: #fff;
+    border-radius: $ten-px;
+    height: $height;
+    padding-left: 0;
+    position: relative;
+    margin-bottom: 5px;
+}
+
+@mixin image-size-results($img-width) {
+    width: $img-width;
+    height: 130px;
+    margin-left: $ten-px;
+    border-radius: 5px;
+}
+
+@mixin image-size-details($img-width, $img-height) {
+    width: $img-width;
+    height: $img-height;
+    border-radius: 5px;
+}
+
+@mixin no-image($pt) {
+    background-color: #999;
+    text-align: center;
+    padding-top: $pt;
+    color: $black;
+}
+
+@mixin font-config($size: initial) {
+    font-size: $size;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Open Sans', sans-serif;
+    background-color: #FCFCFC;
+}
+
+.showlist {
+    @include container-spacing(450px);
+
+    .no-watchlist-item {
+        text-align: center;
+        color: $cyan;
+        @include font-config(96px);
+
+        p {
+            @include font-config();
+            color: $gray;
+        }
+    }
+
+    .show {
+        @include container(40px);
+
+        .checkbox {
+            margin-left: $ten-px;
+            margin-top: 0;
+        }
+
+        .title {
+            margin: 0;
+            text-align: left;
+            position: absolute;
+            left: 50px;
+        }
+
+        .remove {
+            border: none;
+            background-color: transparent;
+            padding-right: $ten-px;
+        }
+    }
+}
+
+.results-list {
+    @include container-spacing(450px);
+
+    .no-results {
+        text-align: center;
+        color: $gray;
+        @include font-config(48px);
+
+        p {
+            @include font-config(20px);
+        }
+    }
+
+    .result-card {
+        @include container(150px);
+    
+        img {
+            @include image-size-results(auto);
+        }
+
+        .no-image {
+            @include image-size-results(92.53px);
+            @include no-image(40px);
+        }
+
+        .show-desc {
+            width: 240px;
+            color: $black;
+            padding-left: 20px;
+
+            p {
+                margin-bottom: 5px;
+                @include font-config(14px);
+            }
+
+            .show-summary {
+                @include font-config(14px);
+                white-space: nowrap;
+                overflow: hidden;
+                text-overflow: ellipsis;
+            }
+        }
+
+        .add-to-watchlist {
+            margin-right: $ten-px;
+        }
+    }
+}
+
+.details-container {
+    @extend %cyan-outline;
+    @include container-spacing(450px);
+    padding: $ten-px;
+    border-radius: $ten-px;
+
+    .poster {
+        padding-right: 0;
+
+        img {
+            @include image-size-details(auto, 142px);
+        }
+
+        .no-image-lg {
+            @include image-size-details(101.08px, 142px);
+            @include no-image(40px);
+            @include font-config(26px);
+
+            h6 {
+                @include font-config(16px);
+            }
+        }
+    }
+
+    .show-details {
+        padding-left: 20px;
+        padding-right: 0;
+
+        h2 {
+            margin-bottom: 20px;
+            @include font-config(24px);
+        }
+
+        h6 {
+            @include font-config(14px);
+        }
+
+        p {
+            margin-top: 15px;
+            @include font-config(14px);
+        }
+    }
+
+    .remove-button {
+        padding-left: 23px;
+
+        span {
+            display: none;
+        }
+    }
+
+    .add-to-watchlist-large {
+        width: 100%;
+        @include font-config(14px);
+    }
+}
+
+@media screen and (min-width: 600px) {
+    .showlist {
+        @include container-spacing(540px);
+    }
+
+    .results-list {
+        @include container-spacing(540px);
+    
+        .result-card {
+    
+            .show-desc {
+                width: 340px;
+    
+                p {
+                    @include font-config();
+                }
+            }
+        }
+    }
+
+    .details-container {
+        @include container-spacing(540px);
+    
+        .poster {
+    
+            img {
+                @include image-size-details(auto, 174px);
+            }
+    
+            .no-image-lg {
+                @include image-size-details(123.86px, 174px);
+                @include no-image(50px);
+                @include font-config(30px);
+    
+                h6 {
+                    @include font-config(18px);
+                }
+            }
+        }
+
+        .show-details {
+            h6 {
+                @include font-config();
+            }
+        }
+    
+        .remove-button {
+            padding-left: 38px;
+        }
+
+        .add-to-watchlist-large {
+            @include font-config();
+        }
+    }
+    
+}
+
+@media screen and (min-width: 768px) {
+    .showlist {
+        @include container-spacing(700px);
+    }
+
+    .results-list {
+        @include container-spacing(700px);
+    
+        .result-card {
+    
+            .show-desc {
+                width: 450px;
+            }
+        }
+    }
+
+    .details-container {
+        @include container-spacing(700px);
+    
+        .poster {
+    
+            img {
+                @include image-size-details(auto, 230px);
+            }
+    
+            .no-image-lg {
+                @include image-size-details(163.72px, 230px);
+                @include no-image(67px);
+                @include font-config(36px);
+    
+                h6 {
+                    @include font-config(24px);
+                }
+            }
+        }
+
+        .show-details {
+            padding-right: 10px;
+    
+            p {
+                @include font-config();
+            }
+        }
+
+        .remove-button {
+            padding-left: 0px;
+
+            span {
+                display: initial;
+            }
+        }
+    }
+}
+
+@media screen and (min-width: 992px) {
+    .details-container {
+        @include container-spacing(900px);
+    
+        .poster {
+    
+            img {
+                @include image-size-details(auto, 300px);
+            }
+    
+            .no-image-lg {
+                @include image-size-details(213.55px, 300px);
+                @include no-image(95px);
+            }
+        }
+
+        .show-details {
+            padding-right: 0;
+        }
+
+        .remove-button {
+            padding-left: 33px;
+        }
+    }
+}
+
+//TODO: AFTER COMMIT: Separate concerns of styles for components in the app.
+// Also separate concerns for mixins and other variables so that multiple component style can use them

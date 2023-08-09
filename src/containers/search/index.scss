@@ -1,0 +1,24 @@
+.search-bar {
+    width: 450px;
+    margin: 20px auto 30px;
+
+    button {
+        background-color: #fff;
+        border-top-left-radius: 0;
+        border-bottom-left-radius: 0;
+    }
+}
+
+@media screen and (min-width: 600px) {
+    .search-bar {
+        width: 540px;
+        margin: 20px auto 30px;
+    }
+}
+
+@media screen and (min-width: 768px) {
+    .search-bar {
+        width: 700px;
+        margin: 20px auto 30px;
+    }
+}
