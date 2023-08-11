@@ -6,7 +6,8 @@ import Loader from "./components/loader";
 import { useEffect, /*useState*/ } from "react";
 import SearchBar from "./containers/search";
 import RemoveModal from "./components/remove_modal";
-import { selectShowModal } from "./features/rmModal/modalSlice";
+import { selectShowModal, selectShowNotification } from "./features/rmModal/modalSlice";
+import RemovalNotification from "./components/removal_notification";
 // import { useLocation } from "react-router-dom";
 
 // const useBackButton = () => {
@@ -26,7 +27,8 @@ import { selectShowModal } from "./features/rmModal/modalSlice";
 const App = () => {
     const status = useAppSelector(selectStatus);
     const query = useAppSelector(selectQuery);
-    const showRmModal = useAppSelector(selectShowModal)
+    const showRmModal = useAppSelector(selectShowModal);
+    const showNotification = useAppSelector(selectShowNotification);
     const dispatch = useAppDispatch();
     // const isBack = useBackButton();
     // const location = useLocation();
@@ -61,6 +63,7 @@ const App = () => {
                 </div>
             )}
             {showRmModal && <RemoveModal />}
+            {showNotification && <RemovalNotification />}
         </div>
     );
 };

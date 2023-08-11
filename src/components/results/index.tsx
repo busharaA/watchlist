@@ -80,6 +80,7 @@ const ResultsCard = ({
                 </div>
             </StyledLink>
             <Link to={"/"}>
+                {/*TODO: Handle preventing to add two same tv shows to watchlist */}
                 <button
                     className="add-to-watchlist btn btn-primary"
                     onClick={() =>
