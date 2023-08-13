@@ -1,5 +1,5 @@
 .notification-modal {
-    margin: 500px 0 0 25px;
+    margin: 500px 0 0 25px !important;
 
     .modal-content {
         box-shadow: 0 .5rem 1rem rgba(0, 0, 0, .15);
@@ -7,5 +7,5 @@
 }
 
 .notification-backdrop {
-    background-color: transparent;
+    background-color: transparent !important;
 }

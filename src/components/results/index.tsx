@@ -2,9 +2,13 @@ import { icon } from "@fortawesome/fontawesome-svg-core/import.macro";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { Link } from "react-router-dom";
 import { styled } from "styled-components";
-import { useAppDispatch } from "../../app/hooks";
+import { useAppDispatch, useAppSelector } from "../../app/hooks";
 import { IShow } from "../../helpers/interfaces/IShow";
-import { addToWatchlist, setDetails } from "../../features/shows/showsSlice";
+import {
+    addToWatchlist,
+    selectWatchlist,
+    setDetails,
+} from "../../features/shows/showsSlice";
 
 const StyledLink = styled(Link)`
     text-decoration: none;
@@ -20,6 +24,7 @@ const ResultsCard = ({
     image,
     summary,
 }: IShow): React.JSX.Element => {
+    const watchlist = useAppSelector(selectWatchlist);
     const dispatch = useAppDispatch();
 
     const setDataToDetails = (
@@ -40,6 +45,10 @@ const ResultsCard = ({
                 summary: summary,
             })
         );
+    };
+
+    const isInWatchlist = (): boolean => {
+        return watchlist.some((show) => show.id === id);
     };
 
     return (
@@ -79,22 +88,31 @@ const ResultsCard = ({
                     )}
                 </div>
             </StyledLink>
-            <Link to={"/"}>
-                {/*TODO: Handle preventing to add two same tv shows to watchlist */}
+            {!isInWatchlist() && (
+                <Link to={"/"}>
+                    <button
+                        className="add-to-watchlist btn btn-primary"
+                        onClick={() =>
+                            dispatch(
+                                addToWatchlist({
+                                    id: id,
+                                    name: name,
+                                })
+                            )
+                        }
+                    >
+                        <FontAwesomeIcon icon={icon({ name: "plus" })} /> ADD
+                    </button>
+                </Link>
+            )}
+            {isInWatchlist() && (
                 <button
                     className="add-to-watchlist btn btn-primary"
-                    onClick={() =>
-                        dispatch(
-                            addToWatchlist({
-                                id: id,
-                                name: name,
-                            })
-                        )
-                    }
+                    disabled
                 >
                     <FontAwesomeIcon icon={icon({ name: "plus" })} /> ADD
                 </button>
-            </Link>
+            )}
         </div>
     );
 };
