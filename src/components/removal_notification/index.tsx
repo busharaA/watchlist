@@ -4,7 +4,6 @@ import {
     selectShowNotification,
     toggleNotification,
 } from "../../features/rmModal/modalSlice";
-import "./index.scss";
 
 const RemovalNotification = (): React.JSX.Element => {
     const showNotification = useAppSelector(selectShowNotification);

@@ -1,5 +1,4 @@
 import React from "react";
-import "./index.scss";
 
 const Header = (): React.JSX.Element => {
     return (

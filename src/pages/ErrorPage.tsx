@@ -1,5 +1,3 @@
-import "../assets/styles/errorPage.scss";
-
 import { useRouteError } from "react-router-dom";
 
 const ErrorPage = (): React.JSX.Element => {

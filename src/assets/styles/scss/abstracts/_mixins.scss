@@ -1,0 +1,41 @@
+@use "./variables" as *;
+@use "./placeholders" as *;
+
+@mixin container-spacing($width) {
+    width: $width;
+    margin: $ten-px auto;
+}
+
+@mixin container($height) {
+    @extend %cyan-outline;
+    background-color: #fff;
+    border-radius: $ten-px;
+    height: $height;
+    padding-left: 0;
+    position: relative;
+    margin-bottom: 5px;
+}
+
+@mixin image-size-results($img-width) {
+    width: $img-width;
+    height: 130px;
+    margin-left: $ten-px;
+    border-radius: 5px;
+}
+
+@mixin image-size-details($img-width, $img-height) {
+    width: $img-width;
+    height: $img-height;
+    border-radius: 5px;
+}
+
+@mixin no-image($pt) {
+    background-color: #999;
+    text-align: center;
+    padding-top: $pt;
+    color: $black;
+}
+
+@mixin font-config($size: initial) {
+    font-size: $size;
+}

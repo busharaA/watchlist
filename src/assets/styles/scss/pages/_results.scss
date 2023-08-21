@@ -1,0 +1,81 @@
+@use "../abstracts/variables" as *;
+@use "../abstracts/mixins" as *;
+
+.results-list {
+    @include container-spacing(450px);
+
+    .no-results {
+        text-align: center;
+        color: $gray;
+        @include font-config(48px);
+
+        p {
+            @include font-config(20px);
+        }
+    }
+
+    .result-card {
+        @include container(150px);
+    
+        img {
+            @include image-size-results(auto);
+        }
+
+        .no-image {
+            @include image-size-results(92.53px);
+            @include no-image(40px);
+        }
+
+        .show-desc {
+            width: 240px;
+            color: $black;
+            padding-left: 20px;
+
+            p {
+                margin-bottom: 5px;
+                @include font-config(14px);
+            }
+
+            .show-summary {
+                @include font-config(14px);
+                white-space: nowrap;
+                overflow: hidden;
+                text-overflow: ellipsis;
+            }
+        }
+
+        .add-to-watchlist {
+            margin-right: $ten-px;
+        }
+    }
+}
+
+@media screen and (min-width: 600px) {
+    .results-list {
+        @include container-spacing(540px);
+    
+        .result-card {
+    
+            .show-desc {
+                width: 340px;
+    
+                p {
+                    @include font-config();
+                }
+            }
+        }
+    }
+}
+
+@media screen and (min-width: 768px) {
+    .results-list {
+        @include container-spacing(700px);
+    
+        .result-card {
+    
+            .show-desc {
+                width: 450px;
+            }
+        }
+    }
+}

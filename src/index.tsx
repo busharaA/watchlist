@@ -1,14 +1,14 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
 import App from "./App";
-import "./assets/styles/index.scss";
+import "./assets/styles/scss/main.scss";
 import { RouterProvider, createBrowserRouter } from "react-router-dom";
-import ErrorPage from "./pages/ErrorPage";
 import Home from "./pages/Home";
 import { Provider } from "react-redux";
 import { store } from "./app/store";
 import SearchResult from "./pages/SearchResult";
 import Details from "./pages/Details";
+import ErrorPage from "./pages/ErrorPage";
 
 const root = ReactDOM.createRoot(
     document.getElementById("root") as HTMLElement

@@ -1,0 +1,51 @@
+@use "../abstracts/variables" as *;
+@use "../abstracts/mixins" as *;
+
+.showlist {
+    @include container-spacing(450px);
+
+    .no-watchlist-item {
+        text-align: center;
+        color: $cyan;
+        @include font-config(96px);
+
+        p {
+            @include font-config();
+            color: $gray;
+        }
+    }
+
+    .show {
+        @include container(40px);
+
+        .checkbox {
+            margin-left: $ten-px;
+            margin-top: 0;
+        }
+
+        .title {
+            margin: 0;
+            text-align: left;
+            position: absolute;
+            left: 50px;
+        }
+
+        .remove {
+            border: none;
+            background-color: transparent;
+            padding-right: $ten-px;
+        }
+    }
+}
+
+@media screen and (min-width: 600px) {
+    .showlist {
+        @include container-spacing(540px);
+    }
+}
+
+@media screen and (min-width: 768px) {
+    .showlist {
+        @include container-spacing(700px);
+    }
+}

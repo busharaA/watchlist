@@ -1,0 +1,23 @@
+// 1. ABSTRACTS
+@use "abstracts/variables" as *;
+@use "abstracts/placeholders";
+@use "abstracts/mixins" as *;
+// 2. VENDORS
+@use "vendors/bootstrap";
+// 3. BASE
+@use "base/base";
+@use "base/reset";
+@use "base/typography";
+// 4. LAYOUT
+@use "layout/header";
+// 5. COMPONENTS
+@use "components/loader";
+@use "components/search";
+@use "components/notification-modal";
+// 6. PAGES
+@use "pages/error-page";
+@use "pages/home";
+@use "pages/results";
+@use "pages/details";
+// 7. THEMES
+// *no themes

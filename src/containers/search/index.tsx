@@ -1,11 +1,9 @@
 import React, { useState } from "react";
-import "./index.scss";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { icon } from "@fortawesome/fontawesome-svg-core/import.macro";
 import { useAppDispatch } from "../../app/hooks";
 import { setSearchQuery } from "../../features/shows/showsSlice";
 import { useNavigate } from "react-router-dom";
-
 
 const SearchBar = (): React.JSX.Element => {
     const [search, setSearch] = useState<string>("");
