@@ -21,6 +21,7 @@
         .checkbox {
             margin-left: $ten-px;
             margin-top: 0;
+            cursor: pointer;
         }
 
         .title {
@@ -28,6 +29,11 @@
             text-align: left;
             position: absolute;
             left: 50px;
+        }
+
+        .checked {
+            color: $gray;
+            text-decoration: line-through;
         }
 
         .remove {
