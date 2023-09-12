@@ -97,6 +97,7 @@ const ResultsCard = ({
                                 addToWatchlist({
                                     id: id,
                                     name: name,
+                                    summary: summary,
                                 })
                             )
                         }

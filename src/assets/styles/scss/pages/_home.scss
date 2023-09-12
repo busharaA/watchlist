@@ -1,6 +1,11 @@
 @use "../abstracts/variables" as *;
 @use "../abstracts/mixins" as *;
 
+%auxiliary-button {
+    border: none;
+    background-color: transparent;
+}
+
 .showlist {
     @include container-spacing(450px);
 
@@ -16,29 +21,46 @@
     }
 
     .show {
-        @include container(40px);
+        @include container(auto);
+        padding: 5px 0;
+        overflow: visible;
 
         .checkbox {
             margin-left: $ten-px;
-            margin-top: 0;
+            margin-top: 4px;
             cursor: pointer;
         }
 
         .title {
             margin: 0;
             text-align: left;
-            position: absolute;
-            left: 50px;
-        }
+            width: 200px;
+            flex-grow: 0.9;
 
-        .checked {
-            color: $gray;
-            text-decoration: line-through;
+            .checked {
+                color: $gray;
+                text-decoration: line-through;
+            }
+    
+            .expand-summary {
+                @extend %auxiliary-button;
+                padding-left: 5px;
+                font-size: 14px;
+            }
+    
+            .expand-summary-checked {
+                color: $gray;
+            }
+
+            .show-summary {
+                padding-top: 5px;
+                @include font-config(14px);
+            }
         }
 
         .remove {
-            border: none;
-            background-color: transparent;
+            @extend %auxiliary-button;
+            height: 22px;
             padding-right: $ten-px;
         }
     }
@@ -47,11 +69,26 @@
 @media screen and (min-width: 600px) {
     .showlist {
         @include container-spacing(540px);
+
+        .show {
+
+            .title {
+                width: 450px;
+                flex-grow: 0.5;
+            }
+        }
     }
 }
 
 @media screen and (min-width: 768px) {
     .showlist {
         @include container-spacing(700px);
+
+        .show {
+
+            .title {
+                flex-grow: 0.9;
+            }
+        }
     }
 }

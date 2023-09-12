@@ -17,7 +17,7 @@ const Showlist = (): React.JSX.Element => {
             )}
             {watchlist.length !== 0 &&
                 watchlist.map((item) => (
-                    <Show key={item.id} id={item.id} name={item.name} />
+                    <Show key={item.id} id={item.id} name={item.name} summary={item.summary} />
                 ))}
         </div>
     );

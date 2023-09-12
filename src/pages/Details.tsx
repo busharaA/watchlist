@@ -69,6 +69,7 @@ const Details = (): React.JSX.Element => {
                                 addToWatchlist({
                                     id: details.id,
                                     name: details.name,
+                                    summary: details.summary,
                                 })
                             )
                         }
