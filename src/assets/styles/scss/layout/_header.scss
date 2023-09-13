@@ -1,26 +1,65 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap');
 
+$orange: #DD6E42;
+
 .header {
     text-align: center;
     height: 120px;
-    color: #DD6E42;
+    color: $orange;
     background-color: #fffaf8;
     font-family: 'Montserrat', sans-serif;
-    padding-top: 25px;
     border-bottom: 1px solid #fae4dc;
 
+    .back-button {
+        border: none;
+        background-color: transparent;
+        color: $orange;
+        font-size: 32px;
+        padding-right: 5%;
+    }
+
     h1 {
-        font-size: 56px;
+        font-size: 48px;
+        padding-right: 8%;
+        padding-top: 30px;
     }
 }
 
 @media screen and (min-width: 600px) {
     .header {
-        padding-top: 20px;
     
+        h1 {
+            font-size: 58px;
+            line-height: 1;
+        }
+    }
+}
+
+@media screen and (min-width: 768px) {
+    .header {
+    
+        .back-button {
+            padding-right: 15%;
+        }
+
+        h1 {
+            padding-right: 17%;
+        }
+    }
+}
+
+@media screen and (min-width: 992px) {
+    .header {
+    
+        .back-button {
+            padding-right: 16%;
+        }
+
         h1 {
             font-size: 72px;
             line-height: 1;
+            padding-top: 22px;
+            padding-right: 17%;
         }
     }
 }

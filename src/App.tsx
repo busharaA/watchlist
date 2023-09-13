@@ -36,11 +36,11 @@ const App = () => {
             {status === "pending" ? (
                 <Loader />
             ) : (
-                <div>
+                <>
                     <Header />
                     <SearchBar />
                     <Outlet />
-                </div>
+                </>
             )}
             {showRmModal && <RemoveModal />}
             {showNotification && <RemovalNotification />}
