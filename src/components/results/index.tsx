@@ -9,6 +9,7 @@ import {
     selectWatchlist,
     setDetails,
 } from "../../features/shows/showsSlice";
+import { IWatchlistItem } from "../../helpers/interfaces/IWatchlistItem";
 
 const StyledLink = styled(Link)`
     text-decoration: none;
@@ -48,7 +49,7 @@ const ResultsCard = ({
     };
 
     const isInWatchlist = (): boolean => {
-        return watchlist.some((show) => show.id === id);
+        return watchlist.some((show: IWatchlistItem) => show.id === id);
     };
 
     return (

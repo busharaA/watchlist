@@ -3,6 +3,7 @@ import { useAppSelector } from "../../app/hooks";
 import { selectWatchlist } from "../../features/shows/showsSlice";
 import { icon } from "@fortawesome/fontawesome-svg-core/import.macro";
 import Show from "./show";
+import { IWatchlistItem } from "../../helpers/interfaces/IWatchlistItem";
 
 const Showlist = (): React.JSX.Element => {
     const watchlist = useAppSelector(selectWatchlist);
@@ -16,7 +17,7 @@ const Showlist = (): React.JSX.Element => {
                 </div>
             )}
             {watchlist.length !== 0 &&
-                watchlist.map((item) => (
+                watchlist.map((item: IWatchlistItem) => (
                     <Show key={item.id} id={item.id} name={item.name} summary={item.summary} />
                 ))}
         </div>

@@ -9,6 +9,7 @@ import {
 } from "../features/shows/showsSlice";
 import { Link } from "react-router-dom";
 import { selectShowToRemove, toggleModal } from "../features/rmModal/modalSlice";
+import { IWatchlistItem } from "../helpers/interfaces/IWatchlistItem";
 
 const Details = (): React.JSX.Element => {
     const details = useAppSelector(selectDetails);
@@ -16,7 +17,7 @@ const Details = (): React.JSX.Element => {
     const dispatch = useAppDispatch();
 
     const isInWatchlist = (): boolean => {
-        return watchlist.some((show) => show.id === details.id);
+        return watchlist.some((show: IWatchlistItem) => show.id === details.id);
     };
 
     const handleRemove = (id: number) => {
